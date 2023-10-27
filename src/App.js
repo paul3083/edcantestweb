@@ -1,24 +1,40 @@
-import logo from './logo.svg';
+import React, {useEffect, useRef} from "react";
+import Header from "./components/Header";
+import IntroClub from "./pages/IntroClub";
+import Apply from "./pages/Apply";
 import './App.css';
+import 'aos/dist/aos.css';
+import AOS from 'aos';
 
 function App() {
+
+  useEffect(() => {
+    AOS.init();
+  }, [])
+  
+  const introclub = useRef(null)
+  const apply = useRef(null)
+
+  const scrollIntroClub = () => {
+    if (introclub !== null) {
+      const { offsetTop } = introclub.current;
+      window.scrollTo({ behavior: "smooth", top: offsetTop });
+    }
+  }
+
+  const scrollApply = () => {
+    if (apply !== null) {
+      const { offsetTop } = apply.current;
+      window.scrollTo({ behavior: "smooth", top: offsetTop });
+    }
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header sc1={scrollIntroClub} sc2={scrollApply} />
+      <IntroClub introclubRef={introclub}/>
+      <Apply applyRef={apply}/>
+    </>
   );
 }
 
