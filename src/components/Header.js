@@ -2,11 +2,11 @@ import React from 'react';
 import styled from "styled-components";
 import Logo from "../assets/images/edcanlogo.svg";
 
-const Header = ({sc1,sc2}) => {
+const Header = ({sc1,sc2,sc3}) => {
   return (
     <Topbar>
       <Container>
-        <img src={Logo} alt="Logo" width={40}/>
+        <img src={Logo} alt="Logo" width={40} onClick={sc3}/>
         <Field>
           <Text onClick={sc1}>동아리 소개</Text>
           <Text onClick={sc2}>지원하기</Text>

@@ -6,7 +6,7 @@ const Apply = ({ applyRef }) => {
   const handleApplyClick = () => {
     window.location.href = "https://edcan.kr/";
   };
-  
+
   return (
     <Container ref={applyRef}>
       <ApplyBox>
@@ -29,6 +29,7 @@ const Container = styled.div`
   height: 1080px;
   align-items: center;
   justify-content: center;
+  background-color: #FFFFFF;
 `;
 
 const ApplyBox = styled.div`
